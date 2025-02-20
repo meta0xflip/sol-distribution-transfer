@@ -15,6 +15,7 @@
     "@solana/web3.js": "^1.98.0",
     "fs": "^0.0.1-security",
     "next": "15.1.7",
+    "pino-pretty": "^13.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
