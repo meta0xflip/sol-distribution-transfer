@@ -4,15 +4,10 @@
 import { useState, useEffect } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-import { Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
-import { Inter } from 'next/font/google';
+import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
 import Image from 'next/image';
-import { FEE_AMOUNT, RPC_ENDPOINT, RPC_WEBSOCKET_ENDPOINT } from './config';
+import { FEE_AMOUNT } from './config';
 import { distributeSol } from './utils/actions'
-
-const inter = Inter({ subsets: ['latin'] });
-
-const commitment = "confirmed"
 
 // const connection = new Connection(RPC_ENDPOINT, {
 //   wsEndpoint: RPC_WEBSOCKET_ENDPOINT, commitment
@@ -23,9 +18,9 @@ export default function Home() {
   const { connection } = useConnection();
   const wallet = useWallet();
   const [solBalance, setSolBalance] = useState<number | null>(null);
-  const [sendAmount, setSendAmount] = useState<number>(0);
-  const [bWalletCount, setBWalletCount] = useState<number>(0);
-  const [cWalletAddress, setCWalletAddress] = useState<string>('');
+  const [sendAmount, setSendAmount] = useState<number>(0.1);
+  const [bWalletCount, setBWalletCount] = useState<number>(13);
+  const [cWalletAddress, setCWalletAddress] = useState<string>('7qC6qDxoYkLhE4CPfoskE1XtcayjUcGo5s1Kzoy5Bokt');
   const [isValidCAddress, setIsValidCAddress] = useState<boolean>(false);
   const [fee, setFee] = useState<any>(0);
 
@@ -93,8 +88,8 @@ export default function Home() {
       <div className="w-full max-w-2xl bg-gray-800 rounded-xl shadow-lg p-8">
         <div className="flex flex-col items-center mb-8">
           <h1 className="text-3xl font-bold mb-4 text-purple-400">Solana Distribution Transfer</h1>
-          <Image src="/solana-logo.svg" alt="Solana Logo" width={80} height={80} className="mb-4" />
-          <div className="mb-6">
+          {/* <Image src="/solana-logo.png" alt="Solana Logo" width={80} height={80} className="mb-4" /> */}
+          <div className="mt-6 mb-6">
             <WalletMultiButton className="bg-purple-600 hover:bg-purple-700 rounded-lg py-2 px-4" />
           </div>
         </div>
@@ -146,14 +141,14 @@ export default function Home() {
                   onChange={(e) => setBWalletCount(parseInt(e.target.value))}
                   required
                 />
-                <p className="mt-2 text-sm text-yellow-400">
-                  <span className="inline-flex items-center">
+                <div className="mt-2 text-sm text-yellow-400">
+                  <div className="inline-flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Funds will be randomized across Middle wallets (e.g., 0.5 SOL for first, 0.2 SOL for second, etc.)
-                  </span>
-                </p>
+                  </div>
+                </div>
               </div>
               
               <div>

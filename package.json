@@ -13,6 +13,7 @@
     "@solana/wallet-adapter-react-ui": "^0.9.35",
     "@solana/wallet-adapter-wallets": "^0.19.32",
     "@solana/web3.js": "^1.98.0",
+    "@svgr/webpack": "^8.1.0",
     "fs": "^0.0.1-security",
     "next": "15.1.7",
     "pino-pretty": "^13.0.0",
