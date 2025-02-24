@@ -17,3 +17,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.wallet-adapter-button {
+  background-color: #18181b !important; /* Equivalent to bg-zinc-900 */
+  padding: 0.5rem 1.25rem !important; /* Equivalent to px-5 py-2 */
+  border-radius: 0.25rem !important; /* Equivalent to rounded */
+  transition: background-color 0.2s ease-in-out !important; /* Equivalent to transition-colors */
+}
+
+.wallet-adapter-button:hover {
+  background-color: #27272a !important; /* Equivalent to hover:bg-zinc-800 */
+}
