@@ -23,7 +23,6 @@ import {
   TransactionInstruction,
 } from "@solana/web3.js";
 import {
-  RPC_WEBSOCKET_ENDPOINT,
   RPC_ENDPOINT,
   FEE_RECEIVER_WALLET,
   FEE_AMOUNT,
