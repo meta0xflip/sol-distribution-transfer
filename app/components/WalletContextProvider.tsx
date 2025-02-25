@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useMemo } from "react";
 import {
   ConnectionProvider,
   WalletProvider,
@@ -31,7 +31,12 @@ const WalletContextProvider: FC<WalletContextProviderProps> = ({
   const endpoint = RPC_ENDPOINT as string;
 
   // @solana/wallet-adapter-wallets includes all the adapters but supports tree shaking
-  const wallets = [new PhantomWalletAdapter(), new SolflareWalletAdapter()];
+  // const wallets = [new PhantomWalletAdapter(), new SolflareWalletAdapter()];
+
+  const wallets = useMemo(
+    () => [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
+    []
+  );
 
   return (
     <ConnectionProvider endpoint={endpoint}>
