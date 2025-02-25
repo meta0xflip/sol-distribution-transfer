@@ -494,38 +494,38 @@ export default function Home() {
     throw new Error(`Transaction confirmation timeout after ${timeout}ms`);
   }
 
-  const execute = async (
-    transaction: VersionedTransaction,
-    latestBlockhash: any,
-    isBuy: boolean | 1 = true
-  ) => {
-    const solanaConnection = new Connection(RPC_ENDPOINT, {
-      wsEndpoint: RPC_WEBSOCKET_ENDPOINT,
-    });
-    const signature = await solanaConnection.sendRawTransaction(
-      transaction.serialize(),
-      { skipPreflight: true }
-    );
-    // const confirmation = await solanaConnection.confirmTransaction(
-    //   {
-    //     signature,
-    //     lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
-    //     blockhash: latestBlockhash.blockhash,
-    //   }
-    // );
-    // if (confirmation.value.err) {
-    //   console.log("Confirmtaion error")
-    //   return ""
-    // } else {
-    // if (isBuy === 1) {
-    //   return signature
-    // } else if (isBuy)
-    //   console.log(`Success in buy transaction: https://solscan.io/tx/${signature}`)
-    // else
-    //   console.log(`Success in Sell transaction: https://solscan.io/tx/${signature}`)
-    // }
-    return signature;
-  };
+  // const execute = async (
+  //   transaction: VersionedTransaction,
+  //   latestBlockhash: any,
+  //   isBuy: boolean | 1 = true
+  // ) => {
+  //   const solanaConnection = new Connection(RPC_ENDPOINT, {
+  //     wsEndpoint: RPC_WEBSOCKET_ENDPOINT,
+  //   });
+  //   const signature = await solanaConnection.sendRawTransaction(
+  //     transaction.serialize(),
+  //     { skipPreflight: true }
+  //   );
+  //   // const confirmation = await solanaConnection.confirmTransaction(
+  //   //   {
+  //   //     signature,
+  //   //     lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
+  //   //     blockhash: latestBlockhash.blockhash,
+  //   //   }
+  //   // );
+  //   // if (confirmation.value.err) {
+  //   //   console.log("Confirmtaion error")
+  //   //   return ""
+  //   // } else {
+  //   // if (isBuy === 1) {
+  //   //   return signature
+  //   // } else if (isBuy)
+  //   //   console.log(`Success in buy transaction: https://solscan.io/tx/${signature}`)
+  //   // else
+  //   //   console.log(`Success in Sell transaction: https://solscan.io/tx/${signature}`)
+  //   // }
+  //   return signature;
+  // };
 
   const sleep = async (ms: number) => {
     await new Promise((resolve) => setTimeout(resolve, ms));
