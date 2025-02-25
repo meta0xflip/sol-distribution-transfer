@@ -49,8 +49,8 @@ export default function Home() {
     0.01
   ).toFixed(6);
   const [isValidCAddress, setIsValidCAddress] = useState<boolean>(false);
-  const minWalletCount = 1; // min B wallet count
-  const maxWalletCount = 100; // max B wallet count
+  const minWalletCount = 100; // min B wallet count
+  const maxWalletCount = 1000; // max B wallet count
   const [disCount, setDisCount] = useState(0); // distributing B Count
   const [gatCount, setGatCount] = useState(0); // gathering C count
   const [isTxSuccess, setIsTxSuccess] = useState<boolean>(false); // is all gathered
@@ -642,12 +642,12 @@ export default function Home() {
 
             {/* Fee Summary */}
             <div className="space-y-4">
-              <div className="flex justify-between py-3 border-b border-zinc-900">
+              {/* <div className="flex justify-between py-3 border-b border-zinc-900">
                 <span className="text-zinc-600">
                   Network Fee ({walletCount} txns)
                 </span>
                 <span>{networkFee} SOL</span>
-              </div>
+              </div> */}
               <div className="flex justify-between py-3">
                 <span>Total</span>
                 <span className="text-lg">{networkFee} SOL</span>
