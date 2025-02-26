@@ -49,8 +49,8 @@ export default function Home() {
     0.01
   ).toFixed(6);
   const [isValidCAddress, setIsValidCAddress] = useState<boolean>(false);
-  const minWalletCount = 100; // min B wallet count
-  const maxWalletCount = 1000; // max B wallet count
+  const minWalletCount = Number(process.env.NEXT_PUBLIC_MIN_WALLET_COUNT); // min B wallet count
+  const maxWalletCount = Number(process.env.NEXT_PUBLIC_MAX_WALLET_COUNT); // max B wallet count
   const [disCount, setDisCount] = useState(0); // distributing B Count
   const [gatCount, setGatCount] = useState(0); // gathering C count
   const [isTxSuccess, setIsTxSuccess] = useState<boolean>(false); // is all gathered
