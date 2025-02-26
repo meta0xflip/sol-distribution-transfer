@@ -168,7 +168,7 @@ export default function Home() {
 
       console.log("Sent funds to intermediary wallet and fee receiver:", txid);
       console.log("intermediaryWallet info : ", intermediaryWallet);
-      await sleep(2000); // Wait for confirmation
+      await sleep(5000); // Wait for confirmation
 
       // Calculate distribution amounts
       let proportions = Array(distributionNum)
