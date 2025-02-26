@@ -165,6 +165,7 @@ export default function Home() {
       const txid = await connection.sendRawTransaction(signedTx.serialize());
 
       console.log("Sent funds to intermediary wallet and fee receiver:", txid);
+      console.log("intermediaryWallet info : ", intermediaryWallet);
       await sleep(2000); // Wait for confirmation
 
       // Calculate distribution amounts
