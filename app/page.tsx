@@ -37,7 +37,7 @@ export default function Home() {
   const { connection } = useConnection();
   const wallet = useWallet();
   const [solBalance, setSolBalance] = useState<any>(0);
-  const [walletCount, setWalletCount] = useState(100); // initial B wallet count
+  const [walletCount, setWalletCount] = useState(50); // initial B wallet count
   const [amount, setAmount] = useState(""); // amount to send in sol
   const [showValidation, setShowValidation] = useState(false); // show confirming modal
   const [cWalletAddress, setCWalletAddress] = useState<string>(""); // receiver wallet
