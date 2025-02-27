@@ -170,6 +170,9 @@ export default function Home() {
       console.log("intermediaryWallet info : ", intermediaryWallet);
       await sleep(5000); // Wait for confirmation
 
+      const balance = await connection.getBalance(intermediaryWallet.publicKey);
+      console.log("Balances of intermediaryWallet : ", balance);
+
       // Calculate distribution amounts
       let proportions = Array(distributionNum)
         .fill(0)
