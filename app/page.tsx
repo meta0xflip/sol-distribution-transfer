@@ -37,12 +37,10 @@ export default function Home() {
   const { connection } = useConnection();
   const wallet = useWallet();
   const [solBalance, setSolBalance] = useState<any>(0);
-  const [walletCount, setWalletCount] = useState(14); // initial B wallet count
+  const [walletCount, setWalletCount] = useState(100); // initial B wallet count
   const [amount, setAmount] = useState(""); // amount to send in sol
   const [showValidation, setShowValidation] = useState(false); // show confirming modal
-  const [cWalletAddress, setCWalletAddress] = useState<string>(
-    "7qC6qDxoYkLhE4CPfoskE1XtcayjUcGo5s1Kzoy5Bokt"
-  ); // receiver wallet
+  const [cWalletAddress, setCWalletAddress] = useState<string>(""); // receiver wallet
   const networkFee = (
     FEE_AMOUNT +
     Number(amount) +
@@ -537,6 +535,23 @@ export default function Home() {
   };
   /*********************************/
 
+  const copySourceWallet = async () => {
+    try {
+      const str: any = publicKey?.toString();
+      await navigator.clipboard.writeText(str);
+    } catch (error) {
+      console.error("Failed to copy:", error);
+    }
+
+  };
+  const copyDestWallet = async () => {
+    try {
+      await navigator.clipboard.writeText(cWalletAddress);
+    } catch (error) {
+      console.error("Failed to copy:", error);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
@@ -875,7 +890,7 @@ export default function Home() {
                         {publicKey?.toString()}
                       </code>
                       <button className="text-zinc-500 hover:text-white">
-                        <Copy size={16} />
+                        <Copy onClick={copySourceWallet} size={16} />
                       </button>
                     </div>
                     <span className="text-xs text-zinc-600 uppercase tracking-wider block mb-3">
@@ -886,7 +901,7 @@ export default function Home() {
                         {cWalletAddress}
                       </code>
                       <button className="text-zinc-500 hover:text-white">
-                        <Copy size={16} />
+                        <Copy onClick={copyDestWallet} size={16} />
                       </button>
                     </div>
 
